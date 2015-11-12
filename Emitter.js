@@ -3,14 +3,19 @@ function Emitter() {
 	this.events = {};
 }
 
-// create the on method
+// implement the on method body; push the listener to the array
 Emitter.prototype.on = function (type, listener) {
-	
+	this.events[type] = this.event[type] || [];
+	this.events[type].push(listener);
 }
 
-// create the emit method
+// implement the emit method body; iterate the array and execute the listener
 Emitter.prototype.emit = function (type) {
-	
+	if (this.events[type]) {
+		this.events[type].forEach(function (listener){
+			listener();
+		});
+	}
 }
 
 module.exports = Emitter; 
