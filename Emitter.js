@@ -5,7 +5,7 @@ function Emitter() {
 
 // implement the on method body; push the listener to the array
 Emitter.prototype.on = function (type, listener) {
-	this.events[type] = this.event[type] || [];
+	this.events[type] = this.events[type] || [];
 	this.events[type].push(listener);
 }
 
